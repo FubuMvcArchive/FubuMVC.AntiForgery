@@ -41,6 +41,10 @@
     <Reference Include="FubuLocalization, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\FubuLocalization.0.9.5.105\lib\FubuLocalization.dll</HintPath>
     </Reference>
+    <Reference Include="FubuMVC.Core, Version=0.9.8.1273, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\FubuMVC.Core.0.9.8.1273\lib\net40\FubuMVC.Core.dll</HintPath>
+    </Reference>
     <Reference Include="FubuTestingSupport">
       <HintPath>..\packages\FubuTestingSupport.0.9.9.205\lib\FubuTestingSupport.dll</HintPath>
     </Reference>
