@@ -1,8 +1,9 @@
 using System;
-using System.Collections.Specialized;
 using System.Security.Principal;
-using System.Web;
 using FubuCore.Binding;
+using FubuCore.Binding.Values;
+using FubuMVC.Core.Http;
+using FubuMVC.Core.Http.Cookies;
 using FubuMVC.Core.Security;
 using FubuTestingSupport;
 using NUnit.Framework;
@@ -13,10 +14,10 @@ namespace FubuMVC.AntiForgery.Testing
     [TestFixture]
     public class AntiForgeryValidatorTester : InteractionContext<AntiForgeryValidator>
     {
-        private NameValueCollection _form;
-        private HttpCookieCollection _cookies;
         private AntiForgeryData _cookieToken;
         private AntiForgeryData _formToken;
+        private ICookies _cookies;
+        private IValueSource _valueSource;
 
         protected override void beforeEach()
         {
@@ -26,11 +27,10 @@ namespace FubuMVC.AntiForgery.Testing
 
             MockFor<IRequestData>().Stub(x => x.Value("ApplicationPath")).Return("Path");
 
-            _form = new NameValueCollection {{"FormName", "FormValue"}};
-            MockFor<IRequestData>().Stub(x => x.Value("Form")).Return(_form);
+            _valueSource = MockFor<IValueSource>();
+            MockFor<IRequestData>().Stub(x => x.ValuesFor(RequestDataSource.Request)).Return(_valueSource);
 
-            _cookies = new HttpCookieCollection {new HttpCookie("CookieName", "CookieValue")};
-            MockFor<IRequestData>().Stub(x => x.Value("Cookies")).Return(_cookies);
+            _cookies = MockFor<ICookies>();
 
             _formToken = new AntiForgeryData
             {
@@ -66,6 +66,8 @@ namespace FubuMVC.AntiForgery.Testing
         public void should_not_validate_with_incorrect_user()
         {
             SetupIdentity(true, "DifferentUser");
+            _cookies.Stub(x => x.Get("CookieName")).Return(new Cookie("CookieName", "CookieValue"));
+            _valueSource.Stub(x => x.Get("FormName")).Return("FormValue");
             ClassUnderTest.Validate("Salty").ShouldBeFalse();
         }
 
@@ -73,6 +75,8 @@ namespace FubuMVC.AntiForgery.Testing
         public void should_not_validate_with_nonmatching_token_values()
         {
             SetupIdentity(true, "User");
+            _cookies.Stub(x => x.Get("CookieName")).Return(new Cookie("CookieName", "CookieValue"));
+            _valueSource.Stub(x => x.Get("FormName")).Return("FormValue");
 
             _formToken.Value = "I don't match!";
 
@@ -84,6 +88,8 @@ namespace FubuMVC.AntiForgery.Testing
         public void should_not_validate_with_unauthenticated_user()
         {
             SetupIdentity(false, "User");
+            _cookies.Stub(x => x.Get("CookieName")).Return(new Cookie("CookieName", "CookieValue"));
+            _valueSource.Stub(x => x.Get("FormName")).Return("FormValue");
             ClassUnderTest.Validate("Salty").ShouldBeFalse();
         }
 
@@ -91,7 +97,8 @@ namespace FubuMVC.AntiForgery.Testing
         public void should_not_validate_without_cookie_token()
         {
             SetupIdentity(true, "User");
-            _cookies.Clear();
+            _cookies.Stub(x => x.Get("CookieName")).Return(null);
+            _valueSource.Stub(x => x.Get("FormName")).Return("FormValue");
             ClassUnderTest.Validate("Salty").ShouldBeFalse();
         }
 
@@ -99,7 +106,8 @@ namespace FubuMVC.AntiForgery.Testing
         public void should_not_validate_without_form_token()
         {
             SetupIdentity(true, "User");
-            _form.Clear();
+            _cookies.Stub(x => x.Get("CookieName")).Return(new Cookie("CookieName", "CookieValue"));
+            _valueSource.Stub(x => x.Get("FormName")).Return(null);
             ClassUnderTest.Validate("Salty").ShouldBeFalse();
         }
 
@@ -108,6 +116,8 @@ namespace FubuMVC.AntiForgery.Testing
         {
             MockFor<IIdentity>().Stub(x => x.IsAuthenticated).Return(true);
             MockFor<IIdentity>().Stub(x => x.Name).Return("User");
+            _cookies.Stub(x => x.Get("CookieName")).Return(new Cookie("CookieName", "CookieValue"));
+            _valueSource.Stub(x => x.Get("FormName")).Return("FormValue");
             ClassUnderTest.Validate("Salty").ShouldBeTrue();
         }
     }

@@ -23,5 +23,5 @@ src/packages
 src/*/repositories.config
 .bottle-alias
 results
-*.DotSettings.user
+*.DotSettings*
 bottles.cmd

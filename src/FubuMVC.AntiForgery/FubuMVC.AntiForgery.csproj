@@ -43,6 +43,9 @@
     <Reference Include="FubuMVC.Core">
       <HintPath>..\packages\FubuMVC.Core.0.9.9.1399\lib\net40\FubuMVC.Core.dll</HintPath>
     </Reference>
+    <Reference Include="FubuMVC.Core.UI">
+      <HintPath>..\packages\FubuMVC.Core.UI.0.9.9.138\lib\net40\FubuMVC.Core.UI.dll</HintPath>
+    </Reference>
     <Reference Include="FubuMVC.Core.View">
       <HintPath>..\packages\FubuMVC.Core.View.0.9.9.119\lib\net40\FubuMVC.Core.View.dll</HintPath>
     </Reference>
@@ -64,14 +67,18 @@
     </Compile>
     <Compile Include="AntiForgeryBehavior.cs" />
     <Compile Include="AntiForgeryData.cs" />
+    <Compile Include="AntiForgeryExtensions.cs" />
     <Compile Include="AntiForgeryNode.cs" />
+    <Compile Include="AntiForgeryPolicy.cs" />
     <Compile Include="AntiForgeryService.cs" />
     <Compile Include="AntiForgeryServiceRegistry.cs" />
+    <Compile Include="AntiForgerySettings.cs" />
     <Compile Include="AntiForgeryTokenAttribute.cs" />
     <Compile Include="AntiForgeryTokenFubuPageExtensions.cs" />
     <Compile Include="AntiForgeryTokenProvider.cs" />
     <Compile Include="AntiForgeryValidator.cs" />
     <Compile Include="BinaryAntiForgerySerializer.cs" />
+    <Compile Include="AntiForgeryTagModifier.cs" />
     <Compile Include="FormToken.cs" />
     <Compile Include="IAntiForgeryEncoder.cs" />
     <Compile Include="IAntiForgerySerializer.cs" />

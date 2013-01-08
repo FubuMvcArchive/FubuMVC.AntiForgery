@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using FubuMVC.Core.View;
+﻿using FubuMVC.Core.View;
 using HtmlTags;
 using HtmlTags.Extended.Attributes;
 
@@ -12,7 +8,8 @@ namespace FubuMVC.AntiForgery
     {
         public static HtmlTag AntiForgeryToken(this IFubuPage page, string salt)
         {
-            return AntiForgeryToken(page, salt, null, null);
+            var settings = page.Get<AntiForgerySettings>();
+            return AntiForgeryToken(page, salt, settings.Path, settings.Domain);
         }
 
         public static HtmlTag AntiForgeryToken(this IFubuPage page, string salt, string path, string domain)
