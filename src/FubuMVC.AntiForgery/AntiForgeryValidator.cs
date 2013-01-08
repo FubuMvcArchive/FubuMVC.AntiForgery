@@ -1,15 +1,14 @@
 using System;
+using System.Threading;
 using FubuCore.Binding;
 using FubuMVC.Core.Http;
 using FubuMVC.Core.Http.Cookies;
 using FubuMVC.Core.Runtime.Files;
-using FubuMVC.Core.Security;
 
 namespace FubuMVC.AntiForgery
 {
     public class AntiForgeryValidator : IAntiForgeryValidator
     {
-        private readonly ISecurityContext _securityContext;
         private readonly ICookies _cookies;
         private readonly IFubuApplicationFiles _fubuApplicationFiles;
         private readonly IRequestData _requestData;
@@ -17,12 +16,11 @@ namespace FubuMVC.AntiForgery
         private readonly IAntiForgeryTokenProvider _tokenProvider;
 
         public AntiForgeryValidator(IAntiForgeryTokenProvider tokenProvider, IAntiForgerySerializer serializer,
-                                    ISecurityContext securityContext, ICookies cookies, IFubuApplicationFiles fubuApplicationFiles,
+                                    ICookies cookies, IFubuApplicationFiles fubuApplicationFiles,
                                     IRequestData requestData)
         {
             _tokenProvider = tokenProvider;
             _serializer = serializer;
-            _securityContext = securityContext;
             _cookies = cookies;
             _fubuApplicationFiles = fubuApplicationFiles;
             _requestData = requestData;
@@ -53,7 +51,7 @@ namespace FubuMVC.AntiForgery
                 return false;
             }
 
-            string currentUsername = AntiForgeryData.GetUsername(_securityContext.CurrentUser);
+            string currentUsername = AntiForgeryData.GetUsername(Thread.CurrentPrincipal);
             if (!string.Equals(formToken.Username, currentUsername, StringComparison.OrdinalIgnoreCase))
             {
                 return false;

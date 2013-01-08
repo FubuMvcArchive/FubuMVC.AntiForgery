@@ -1,5 +1,6 @@
 using System;
 using System.Security.Principal;
+using System.Threading;
 using FubuCore.Binding;
 using FubuCore.Binding.Values;
 using FubuMVC.Core.Http;
@@ -49,16 +50,13 @@ namespace FubuMVC.AntiForgery.Testing
             };
             MockFor<IAntiForgerySerializer>().Stub(x => x.Deserialize("CookieValue")).Return(_cookieToken);
             MockFor<IAntiForgerySerializer>().Stub(x => x.Deserialize("FormValue")).Return(_formToken);
-
-
-            MockFor<IPrincipal>().Stub(x => x.Identity).Return(MockFor<IIdentity>());
-            MockFor<ISecurityContext>().Stub(x => x.CurrentUser).Return(MockFor<IPrincipal>());
         }
 
         private void SetupIdentity(bool authenticated, string name)
         {
             MockFor<IIdentity>().Stub(x => x.IsAuthenticated).Return(authenticated);
             MockFor<IIdentity>().Stub(x => x.Name).Return(name);
+            Thread.CurrentPrincipal = new GenericPrincipal(MockFor<IIdentity>(), null);
         }
 
 
@@ -114,6 +112,7 @@ namespace FubuMVC.AntiForgery.Testing
         [Test]
         public void should_validate_with_correct_request_data()
         {
+            Thread.CurrentPrincipal = new GenericPrincipal(new GenericIdentity("User"), null);
             MockFor<IIdentity>().Stub(x => x.IsAuthenticated).Return(true);
             MockFor<IIdentity>().Stub(x => x.Name).Return("User");
             _cookies.Stub(x => x.Get("CookieName")).Return(new Cookie("CookieName", "CookieValue"));

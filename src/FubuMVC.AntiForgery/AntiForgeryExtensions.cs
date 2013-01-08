@@ -7,6 +7,7 @@ namespace FubuMVC.AntiForgery
     {
         public void Configure(FubuRegistry registry)
         {
+            registry.Services<AntiForgeryServiceRegistry>();
             registry.Import<HtmlConventionRegistry>(x => x.Forms.Add(new AntiForgeryTagModifier()));
         }
     }

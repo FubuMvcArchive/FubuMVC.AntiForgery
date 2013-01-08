@@ -12,8 +12,9 @@
     <description>Anti-Forgery protection for FubuMVC applications</description>
     <tags>web framework specification fubumvc</tags>
     <dependencies>
-      <dependency id="FubuMVC.Core" version="0.9.9.1274" />
-      <dependency id="FubuMVC.Core.View" version="0.9.9.41" />
+      <dependency id="FubuMVC.Core" version="0.9.9.1400" />
+      <dependency id="FubuMVC.Core.View" version="0.9.9.119" />
+	  <dependency id="FubuMVC.Core.UI" version="0.9.9.138" />
     </dependencies>
   </metadata>
   <files>

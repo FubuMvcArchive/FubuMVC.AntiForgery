@@ -1,0 +1,4 @@
+﻿<viewdata model="IntegrationTesting.AntiForgeryTestViewModel" />
+${this.FormFor<IntegrationTesting.AntiForgeryTestInputModel>()}
+${this.InputFor(x => x.Value)}
+${this.EndForm()}

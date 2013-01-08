@@ -4,6 +4,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FubuMVC.AntiForgery", "Fubu
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FubuMVC.AntiForgery.Testing", "FubuMVC.AntiForgery.Testing\FubuMVC.AntiForgery.Testing.csproj", "{AAD29302-20E9-4FAD-8A05-ED06839E76E5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IntegrationTesting", "IntegrationTesting\IntegrationTesting.csproj", "{8E86361C-2041-4AF2-9C32-6BA722A65704}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,6 +20,10 @@ Global
 		{AAD29302-20E9-4FAD-8A05-ED06839E76E5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AAD29302-20E9-4FAD-8A05-ED06839E76E5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AAD29302-20E9-4FAD-8A05-ED06839E76E5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8E86361C-2041-4AF2-9C32-6BA722A65704}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8E86361C-2041-4AF2-9C32-6BA722A65704}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8E86361C-2041-4AF2-9C32-6BA722A65704}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8E86361C-2041-4AF2-9C32-6BA722A65704}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

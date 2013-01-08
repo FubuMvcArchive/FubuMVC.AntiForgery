@@ -1,15 +1,14 @@
+using System.Threading;
 using FubuCore;
 using FubuMVC.Core.Http.Cookies;
 using FubuMVC.Core.Runtime;
 using FubuMVC.Core.Runtime.Files;
-using FubuMVC.Core.Security;
 
 namespace FubuMVC.AntiForgery
 {
     public class AntiForgeryService : IAntiForgeryService
     {
         private readonly IOutputWriter _outputWriter;
-        private readonly ISecurityContext _securityContext;
         private readonly IFubuApplicationFiles _fubuApplicationFiles;
         private readonly ICookies _cookies;
         private readonly IAntiForgerySerializer _serializer;
@@ -18,14 +17,12 @@ namespace FubuMVC.AntiForgery
         public AntiForgeryService(IOutputWriter outputWriter,
                                   IAntiForgeryTokenProvider tokenProvider,
                                   IAntiForgerySerializer serializer,
-                                  ISecurityContext securityContext,
                                   IFubuApplicationFiles fubuApplicationFiles,
                                   ICookies cookies)
         {
             _outputWriter = outputWriter;
             _tokenProvider = tokenProvider;
             _serializer = serializer;
-            _securityContext = securityContext;
             _fubuApplicationFiles = fubuApplicationFiles;
             _cookies = cookies;
         }
@@ -52,7 +49,7 @@ namespace FubuMVC.AntiForgery
             var formToken = new AntiForgeryData(token)
             {
                 Salt = salt,
-                Username = AntiForgeryData.GetUsername(_securityContext.CurrentUser)
+                Username = AntiForgeryData.GetUsername(Thread.CurrentPrincipal)
             };
             string tokenString = _serializer.Serialize(formToken);
 
