@@ -1,6 +1,8 @@
 using System.Web;
 using FubuCore.Binding;
+using FubuMVC.Core.Http.Cookies;
 using FubuMVC.Core.Runtime;
+using FubuMVC.Core.Runtime.Files;
 using FubuTestingSupport;
 using NUnit.Framework;
 using Rhino.Mocks;
@@ -12,8 +14,8 @@ namespace FubuMVC.AntiForgery.Testing
     {
         protected override void beforeEach()
         {
-            MockFor<IRequestData>().Stub(r => r.Value("ApplicationPath")).Return("Path");
-            MockFor<IRequestData>().Stub(r => r.Value("Cookies")).Return(new HttpCookieCollection());
+            MockFor<IFubuApplicationFiles>().Stub(r => r.GetApplicationPath()).Return("Path");
+            MockFor<ICookies>().Stub(r => r.Get("Cookies")).Return(new Cookie());
 
             MockFor<IAntiForgeryTokenProvider>().Stub(x => x.GetTokenName("Path")).Return("CookieName");
 
@@ -40,7 +42,7 @@ namespace FubuMVC.AntiForgery.Testing
         [Test]
         public void should_set_cookie()
         {
-            MockFor<IOutputWriter>().Expect(o => o.AppendCookie(default(HttpCookie))).IgnoreArguments();
+            MockFor<IOutputWriter>().Expect(o => o.AppendCookie(default(Cookie))).IgnoreArguments();
 
             ClassUnderTest.SetCookieToken(null, null);
 

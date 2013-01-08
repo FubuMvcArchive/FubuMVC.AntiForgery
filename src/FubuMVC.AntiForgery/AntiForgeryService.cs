@@ -1,7 +1,7 @@
-using System.Web;
 using FubuCore;
-using FubuCore.Binding;
+using FubuMVC.Core.Http.Cookies;
 using FubuMVC.Core.Runtime;
+using FubuMVC.Core.Runtime.Files;
 using FubuMVC.Core.Security;
 
 namespace FubuMVC.AntiForgery
@@ -9,8 +9,9 @@ namespace FubuMVC.AntiForgery
     public class AntiForgeryService : IAntiForgeryService
     {
         private readonly IOutputWriter _outputWriter;
-        private readonly IRequestData _requestData;
         private readonly ISecurityContext _securityContext;
+        private readonly IFubuApplicationFiles _fubuApplicationFiles;
+        private readonly ICookies _cookies;
         private readonly IAntiForgerySerializer _serializer;
         private readonly IAntiForgeryTokenProvider _tokenProvider;
 
@@ -18,23 +19,25 @@ namespace FubuMVC.AntiForgery
                                   IAntiForgeryTokenProvider tokenProvider,
                                   IAntiForgerySerializer serializer,
                                   ISecurityContext securityContext,
-                                  IRequestData requestData)
+                                  IFubuApplicationFiles fubuApplicationFiles,
+                                  ICookies cookies)
         {
             _outputWriter = outputWriter;
             _tokenProvider = tokenProvider;
             _serializer = serializer;
             _securityContext = securityContext;
-            _requestData = requestData;
+            _fubuApplicationFiles = fubuApplicationFiles;
+            _cookies = cookies;
         }
 
         public AntiForgeryData SetCookieToken(string path, string domain)
         {
-            var applicationPath = (string) _requestData.Value("ApplicationPath");
+            var applicationPath = _fubuApplicationFiles.GetApplicationPath();
             AntiForgeryData token = GetCookieToken();
             string name = _tokenProvider.GetTokenName(applicationPath);
             string cookieValue = _serializer.Serialize(token);
 
-            var newCookie = new HttpCookie(name, cookieValue) {HttpOnly = true, Domain = domain};
+            var newCookie = new Cookie(name, cookieValue) {HttpOnly = true, Domain = domain};
             if (!string.IsNullOrEmpty(path))
             {
                 newCookie.Path = path;
@@ -62,10 +65,9 @@ namespace FubuMVC.AntiForgery
 
         public AntiForgeryData GetCookieToken()
         {
-            var cookies = (HttpCookieCollection) _requestData.Value("Cookies");
-            var applicationPath = (string) _requestData.Value("ApplicationPath");
+            var applicationPath = _fubuApplicationFiles.GetApplicationPath();
             string name = _tokenProvider.GetTokenName(applicationPath);
-            HttpCookie cookie = cookies[name];
+            Cookie cookie = _cookies.Get(name);
             AntiForgeryData cookieToken = null;
             if (cookie != null)
             {
