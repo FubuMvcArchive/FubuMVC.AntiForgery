@@ -1,4 +1,5 @@
 using System.Threading;
+using System.Web;
 using FubuCore;
 using FubuMVC.Core.Http.Cookies;
 using FubuMVC.Core.Runtime;
@@ -34,7 +35,7 @@ namespace FubuMVC.AntiForgery
             string name = _tokenProvider.GetTokenName(applicationPath);
             string cookieValue = _serializer.Serialize(token);
 
-            var newCookie = new Cookie(name, cookieValue) {HttpOnly = true, Domain = domain};
+            var newCookie = new Cookie(name, HttpUtility.UrlEncode(cookieValue)) {HttpOnly = true, Domain = domain};
             if (!string.IsNullOrEmpty(path))
             {
                 newCookie.Path = path;
@@ -70,7 +71,7 @@ namespace FubuMVC.AntiForgery
             {
                 try
                 {
-                    cookieToken = _serializer.Deserialize(cookie.Value);
+                    cookieToken = _serializer.Deserialize(HttpUtility.UrlDecode(cookie.Value));
                 }
                 catch (FubuException)
                 {

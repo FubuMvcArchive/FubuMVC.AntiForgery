@@ -1,0 +1,438 @@
+4/30/2013 3:46:59 PM: [Info] Classic Mode Detected
+4/30/2013 3:46:59 PM: [Debug] Deleting c:\code\FubuMVC.AntiForgery\src\packages
+4/30/2013 3:46:59 PM: [Info] Restoring dependencies for solution FubuMVC.AntiForgery to c:\code\FubuMVC.AntiForgery\src\packages
+4/30/2013 3:46:59 PM: [Debug] 
+====================================================================================================
+RippleOperation: FubuMVC.AntiForgery
+====================================================================================================
+     ** Ripple Steps
+          1.) DownloadMissingNugets       Download missing nugets for FubuMVC.AntiForgery           
+          2.) ExplodeDownloadedNugets     Explode nugets at c:\code\FubuMVC.AntiForgery\src\packages
+          3.) ProcessDirectives           Process directives from nugets                            
+          4.) FixReferences               Fix References                                            
+
+4/30/2013 3:47:01 PM: [Debug] Downloading From Cache: C:\Users\jacrio\AppData\Roaming\ripple\FubuMVC.Core.UI.1.0.1.450.nupkg
+4/30/2013 3:47:01 PM: [Debug] Downloading From Cache: C:\Users\jacrio\AppData\Roaming\ripple\Bottles.1.0.0.475.nupkg
+4/30/2013 3:47:01 PM: [Debug] Downloading From Cache: C:\Users\jacrio\AppData\Roaming\ripple\FubuMVC.Core.1.0.1.1457.nupkg
+4/30/2013 3:47:01 PM: [Debug] Downloading From Cache: C:\Users\jacrio\AppData\Roaming\ripple\FubuCore.1.1.0.243.nupkg
+4/30/2013 3:47:01 PM: [Debug] Downloading From Cache: C:\Users\jacrio\AppData\Roaming\ripple\FubuMVC.Core.View.1.0.0.432.nupkg
+4/30/2013 3:47:01 PM: [Debug] Downloading Download and cache FubuMVC.OwinHost.1.0.1.1457.nupkg
+4/30/2013 3:47:01 PM: [Debug] Downloading Download and cache FubuMVC.Katana.1.0.1.1457.nupkg
+4/30/2013 3:47:01 PM: [Debug] Downloading From Cache: C:\Users\jacrio\AppData\Roaming\ripple\FubuLocalization.0.9.5.143.nupkg
+4/30/2013 3:47:01 PM: [Debug] Downloading From Cache: C:\Users\jacrio\AppData\Roaming\ripple\FubuMVC.Spark.1.0.0.432.nupkg
+4/30/2013 3:47:01 PM: [Debug] Downloading From Cache: C:\Users\jacrio\AppData\Roaming\ripple\FubuMVC.StructureMap.1.0.1.1457.nupkg
+4/30/2013 3:47:01 PM: [Debug] Downloading Download and cache FubuTestingSupport.1.1.0.243.nupkg
+4/30/2013 3:47:01 PM: [Debug] Downloading From Cache: C:\Users\jacrio\AppData\Roaming\ripple\HtmlTags.1.2.0.159.nupkg
+4/30/2013 3:47:03 PM: [Debug] Downloading Download and cache NUnit.2.5.10.11092.nupkg
+4/30/2013 3:47:03 PM: [Debug] Downloading From Cache: C:\Users\jacrio\AppData\Roaming\ripple\RhinoMocks.3.6.1.0.nupkg
+4/30/2013 3:47:03 PM: [Debug] Downloading Download and cache Owin.1.0.0.0.nupkg
+4/30/2013 3:47:03 PM: [Error] Could not find FubuMVC.TestingHarness,0.9.9.1400,Fixed
+4/30/2013 3:47:03 PM: [Error] ripple.RippleFatalError: Could not find FubuMVC.TestingHarness,0.9.9.1400,Fixed
+4/30/2013 3:47:03 PM: [Debug] Downloading Download and cache Owin.Extensions.0.6.4.0.nupkg
+4/30/2013 3:47:04 PM: [Debug] Downloading From Cache: C:\Users\jacrio\AppData\Roaming\ripple\structuremap.automocking.2.6.3.0.nupkg
+4/30/2013 3:47:04 PM: [Debug] Downloading Download and cache Spark.1.7.5.0.nupkg
+4/30/2013 3:47:04 PM: [Debug] Downloading From Cache: C:\Users\jacrio\AppData\Roaming\ripple\structuremap.2.6.3.0.nupkg
+4/30/2013 3:47:05 PM: [Error] Error executing DownloadMissingNugets
+4/30/2013 3:47:05 PM: [Error] System.AggregateException: One or more errors occurred. ---> ripple.RippleFatalError: Could not find FubuMVC.TestingHarness,0.9.9.1400,Fixed
+   at ripple.RippleAssert.Fail(String message)
+   at ripple.Model.FeedService.NugetFor(Solution solution, Dependency dependency)
+   at ripple.Model.Solution.Restore(Dependency dependency)
+   at ripple.Steps.DownloadMissingNugets.<>c__DisplayClass5.<restore>b__4()
+   at System.Threading.Tasks.Task.Execute()
+   --- End of inner exception stack trace ---
+   at System.Threading.Tasks.Task.WaitAll(Task[] tasks, Int32 millisecondsTimeout, CancellationToken cancellationToken)
+   at System.Threading.Tasks.Task.WaitAll(Task[] tasks, Int32 millisecondsTimeout)
+   at System.Threading.Tasks.Task.WaitAll(Task[] tasks)
+   at ripple.Steps.DownloadMissingNugets.Execute(SolutionInput input, IRippleStepRunner runner)
+   at ripple.RippleOperation.Execute(Boolean throwOnFailure)
+---> (Inner Exception #0) ripple.RippleFatalError: Could not find FubuMVC.TestingHarness,0.9.9.1400,Fixed
+   at ripple.RippleAssert.Fail(String message)
+   at ripple.Model.FeedService.NugetFor(Solution solution, Dependency dependency)
+   at ripple.Model.Solution.Restore(Dependency dependency)
+   at ripple.Steps.DownloadMissingNugets.<>c__DisplayClass5.<restore>b__4()
+   at System.Threading.Tasks.Task.Execute()<---
+
+4/30/2013 3:47:05 PM: [Debug] 
+==================================================================================================================================================
+Solution "FubuMVC.AntiForgery": c:\code\FubuMVC.AntiForgery\ripple.config
+==================================================================================================================================================
+     ** Solution-Level
+        * FubuMVC.TestingHarness       0.9.9.1400  
+        * NUnit                        2.5.10.11092
+        * Owin                         1.0         
+        * Owin.Extensions              0.6.4       
+        * RhinoMocks                   3.6.1       
+        * Spark                        1.7.5.0     
+        * structuremap                 2.6.3       
+        * structuremap.automocking     2.6.3       
+     ** NuGet Feeds
+        * Feed     http://build.fubu-project.org/guestAuth/app/nuget/v1/FeedService.svc (Float)
+        * Feed     http://nuget.org/api/v2 (Fixed)                                             
+        * Feed     http://packages.nuget.org/v1/FeedService.svc (Fixed)                        
+     ** Projects
+        * Project "FubuMVC.AntiForgery"             c:\code\FubuMVC.AntiForgery\src\FubuMVC.AntiForgery\FubuMVC.AntiForgery.csproj                
+             ** Dependencies
+                * Bottles               Float
+                * FubuCore              Float
+                * FubuLocalization      Float
+                * FubuMVC.Core          Float
+                * FubuMVC.Core.UI       Float
+                * FubuMVC.Core.View     Float
+                * HtmlTags              Float
+        * Project "FubuMVC.AntiForgery.Testing"     c:\code\FubuMVC.AntiForgery\src\FubuMVC.AntiForgery.Testing\FubuMVC.AntiForgery.Testing.csproj
+             ** Dependencies
+                * Bottles                      Float
+                * FubuCore                     Float
+                * FubuLocalization             Float
+                * FubuMVC.Core                 Float
+                * FubuMVC.Core.UI              Float
+                * FubuMVC.Core.View            Float
+                * FubuTestingSupport           Float
+                * HtmlTags                     Float
+                * NUnit                        Float
+                * RhinoMocks                   Float
+                * structuremap                 Float
+                * structuremap.automocking     Float
+        * Project "IntegrationTesting"              c:\code\FubuMVC.AntiForgery\src\IntegrationTesting\IntegrationTesting.csproj                  
+             ** Dependencies
+                * Bottles                      Float
+                * FubuCore                     Float
+                * FubuLocalization             Float
+                * FubuMVC.Core                 Float
+                * FubuMVC.Core.View            Float
+                * FubuMVC.Katana               Float
+                * FubuMVC.OwinHost             Float
+                * FubuMVC.Spark                Float
+                * FubuMVC.StructureMap         Float
+                * FubuMVC.TestingHarness       Float
+                * FubuTestingSupport           Float
+                * HtmlTags                     Float
+                * NUnit                        Float
+                * Owin                         Float
+                * Owin.Extensions              Float
+                * RhinoMocks                   Float
+                * Spark                        Float
+                * structuremap                 Float
+                * structuremap.automocking     Float
+     ** Missing
+        * Bottles                      Float       
+        * FubuCore                     Float       
+        * FubuLocalization             Float       
+        * FubuMVC.Core                 Float       
+        * FubuMVC.Core.UI              Float       
+        * FubuMVC.Core.View            Float       
+        * FubuMVC.Katana               Float       
+        * FubuMVC.OwinHost             Float       
+        * FubuMVC.Spark                Float       
+        * FubuMVC.StructureMap         Float       
+        * FubuMVC.TestingHarness       0.9.9.1400  
+        * FubuTestingSupport           Float       
+        * HtmlTags                     Float       
+        * NUnit                        2.5.10.11092
+        * Owin                         1.0         
+        * Owin.Extensions              0.6.4       
+        * RhinoMocks                   3.6.1       
+        * Spark                        1.7.5.0     
+        * structuremap                 2.6.3       
+        * structuremap.automocking     2.6.3       
+
+4/30/2013 3:47:24 PM: [Debug] Deleting c:\code\FubuMVC.AntiForgery\src\packages
+4/30/2013 3:47:24 PM: [Info] Restoring dependencies for solution FubuMVC.AntiForgery to c:\code\FubuMVC.AntiForgery\src\packages
+4/30/2013 3:47:24 PM: [Debug] 
+====================================================================================================
+RippleOperation: FubuMVC.AntiForgery
+====================================================================================================
+     ** Ripple Steps
+          1.) DownloadMissingNugets       Download missing nugets for FubuMVC.AntiForgery           
+          2.) ExplodeDownloadedNugets     Explode nugets at c:\code\FubuMVC.AntiForgery\src\packages
+          3.) ProcessDirectives           Process directives from nugets                            
+          4.) FixReferences               Fix References                                            
+
+4/30/2013 3:47:25 PM: [Debug] Downloading From Cache: C:\Users\jacrio\AppData\Roaming\ripple\FubuCore.1.1.0.243.nupkg
+4/30/2013 3:47:25 PM: [Debug] Downloading From Cache: C:\Users\jacrio\AppData\Roaming\ripple\FubuMVC.Core.UI.1.0.1.450.nupkg
+4/30/2013 3:47:25 PM: [Debug] Downloading From Cache: C:\Users\jacrio\AppData\Roaming\ripple\FubuMVC.Core.View.1.0.0.432.nupkg
+4/30/2013 3:47:25 PM: [Debug] Downloading From Cache: C:\Users\jacrio\AppData\Roaming\ripple\Bottles.1.0.0.475.nupkg
+4/30/2013 3:47:25 PM: [Debug] Downloading From Cache: C:\Users\jacrio\AppData\Roaming\ripple\FubuMVC.Core.1.0.1.1457.nupkg
+4/30/2013 3:47:25 PM: [Debug] Downloading From Cache: C:\Users\jacrio\AppData\Roaming\ripple\FubuLocalization.0.9.5.143.nupkg
+4/30/2013 3:47:25 PM: [Debug] Downloading From Cache: C:\Users\jacrio\AppData\Roaming\ripple\FubuMVC.Katana.1.0.1.1457.nupkg
+4/30/2013 3:47:25 PM: [Debug] Downloading From Cache: C:\Users\jacrio\AppData\Roaming\ripple\FubuMVC.Spark.1.0.0.432.nupkg
+4/30/2013 3:47:25 PM: [Debug] Downloading From Cache: C:\Users\jacrio\AppData\Roaming\ripple\FubuMVC.OwinHost.1.0.1.1457.nupkg
+4/30/2013 3:47:25 PM: [Debug] Downloading From Cache: C:\Users\jacrio\AppData\Roaming\ripple\FubuMVC.StructureMap.1.0.1.1457.nupkg
+4/30/2013 3:47:25 PM: [Debug] Downloading From Cache: C:\Users\jacrio\AppData\Roaming\ripple\FubuTestingSupport.1.1.0.243.nupkg
+4/30/2013 3:47:25 PM: [Debug] Downloading From Cache: C:\Users\jacrio\AppData\Roaming\ripple\HtmlTags.1.2.0.159.nupkg
+4/30/2013 3:47:26 PM: [Debug] Downloading From Cache: C:\Users\jacrio\AppData\Roaming\ripple\NUnit.2.5.10.11092.nupkg
+4/30/2013 3:47:27 PM: [Debug] Downloading From Cache: C:\Users\jacrio\AppData\Roaming\ripple\Owin.1.0.0.0.nupkg
+4/30/2013 3:47:28 PM: [Error] Could not find FubuMVC.TestingHarness,0.9.9.1400,Fixed
+4/30/2013 3:47:28 PM: [Error] ripple.RippleFatalError: Could not find FubuMVC.TestingHarness,0.9.9.1400,Fixed
+4/30/2013 3:47:28 PM: [Debug] Downloading From Cache: C:\Users\jacrio\AppData\Roaming\ripple\RhinoMocks.3.6.1.0.nupkg
+4/30/2013 3:47:28 PM: [Debug] Downloading From Cache: C:\Users\jacrio\AppData\Roaming\ripple\Owin.Extensions.0.6.4.0.nupkg
+4/30/2013 3:47:29 PM: [Debug] Downloading From Cache: C:\Users\jacrio\AppData\Roaming\ripple\structuremap.2.6.3.0.nupkg
+4/30/2013 3:47:29 PM: [Debug] Downloading From Cache: C:\Users\jacrio\AppData\Roaming\ripple\Spark.1.7.5.0.nupkg
+4/30/2013 3:47:30 PM: [Debug] Downloading From Cache: C:\Users\jacrio\AppData\Roaming\ripple\structuremap.automocking.2.6.3.0.nupkg
+4/30/2013 3:47:30 PM: [Error] Error executing DownloadMissingNugets
+4/30/2013 3:47:30 PM: [Error] System.AggregateException: One or more errors occurred. ---> ripple.RippleFatalError: Could not find FubuMVC.TestingHarness,0.9.9.1400,Fixed
+   at ripple.RippleAssert.Fail(String message)
+   at ripple.Model.FeedService.NugetFor(Solution solution, Dependency dependency)
+   at ripple.Model.Solution.Restore(Dependency dependency)
+   at ripple.Steps.DownloadMissingNugets.<>c__DisplayClass5.<restore>b__4()
+   at System.Threading.Tasks.Task.Execute()
+   --- End of inner exception stack trace ---
+   at System.Threading.Tasks.Task.WaitAll(Task[] tasks, Int32 millisecondsTimeout, CancellationToken cancellationToken)
+   at System.Threading.Tasks.Task.WaitAll(Task[] tasks, Int32 millisecondsTimeout)
+   at System.Threading.Tasks.Task.WaitAll(Task[] tasks)
+   at ripple.Steps.DownloadMissingNugets.Execute(SolutionInput input, IRippleStepRunner runner)
+   at ripple.RippleOperation.Execute(Boolean throwOnFailure)
+---> (Inner Exception #0) ripple.RippleFatalError: Could not find FubuMVC.TestingHarness,0.9.9.1400,Fixed
+   at ripple.RippleAssert.Fail(String message)
+   at ripple.Model.FeedService.NugetFor(Solution solution, Dependency dependency)
+   at ripple.Model.Solution.Restore(Dependency dependency)
+   at ripple.Steps.DownloadMissingNugets.<>c__DisplayClass5.<restore>b__4()
+   at System.Threading.Tasks.Task.Execute()<---
+
+4/30/2013 3:47:30 PM: [Debug] 
+==================================================================================================================================================
+Solution "FubuMVC.AntiForgery": c:\code\FubuMVC.AntiForgery\ripple.config
+==================================================================================================================================================
+     ** Solution-Level
+        * FubuMVC.TestingHarness       0.9.9.1400  
+        * NUnit                        2.5.10.11092
+        * Owin                         1.0         
+        * Owin.Extensions              0.6.4       
+        * RhinoMocks                   3.6.1       
+        * Spark                        1.7.5.0     
+        * structuremap                 2.6.3       
+        * structuremap.automocking     2.6.3       
+     ** NuGet Feeds
+        * Feed     http://build.fubu-project.org/guestAuth/app/nuget/v1/FeedService.svc (Float)
+        * Feed     http://nuget.org/api/v2 (Fixed)                                             
+        * Feed     http://packages.nuget.org/v1/FeedService.svc (Fixed)                        
+     ** Projects
+        * Project "FubuMVC.AntiForgery"             c:\code\FubuMVC.AntiForgery\src\FubuMVC.AntiForgery\FubuMVC.AntiForgery.csproj                
+             ** Dependencies
+                * Bottles               Float
+                * FubuCore              Float
+                * FubuLocalization      Float
+                * FubuMVC.Core          Float
+                * FubuMVC.Core.UI       Float
+                * FubuMVC.Core.View     Float
+                * HtmlTags              Float
+        * Project "FubuMVC.AntiForgery.Testing"     c:\code\FubuMVC.AntiForgery\src\FubuMVC.AntiForgery.Testing\FubuMVC.AntiForgery.Testing.csproj
+             ** Dependencies
+                * Bottles                      Float
+                * FubuCore                     Float
+                * FubuLocalization             Float
+                * FubuMVC.Core                 Float
+                * FubuMVC.Core.UI              Float
+                * FubuMVC.Core.View            Float
+                * FubuTestingSupport           Float
+                * HtmlTags                     Float
+                * NUnit                        Float
+                * RhinoMocks                   Float
+                * structuremap                 Float
+                * structuremap.automocking     Float
+        * Project "IntegrationTesting"              c:\code\FubuMVC.AntiForgery\src\IntegrationTesting\IntegrationTesting.csproj                  
+             ** Dependencies
+                * Bottles                      Float
+                * FubuCore                     Float
+                * FubuLocalization             Float
+                * FubuMVC.Core                 Float
+                * FubuMVC.Core.View            Float
+                * FubuMVC.Katana               Float
+                * FubuMVC.OwinHost             Float
+                * FubuMVC.Spark                Float
+                * FubuMVC.StructureMap         Float
+                * FubuMVC.TestingHarness       Float
+                * FubuTestingSupport           Float
+                * HtmlTags                     Float
+                * NUnit                        Float
+                * Owin                         Float
+                * Owin.Extensions              Float
+                * RhinoMocks                   Float
+                * Spark                        Float
+                * structuremap                 Float
+                * structuremap.automocking     Float
+     ** Missing
+        * Bottles                      Float       
+        * FubuCore                     Float       
+        * FubuLocalization             Float       
+        * FubuMVC.Core                 Float       
+        * FubuMVC.Core.UI              Float       
+        * FubuMVC.Core.View            Float       
+        * FubuMVC.Katana               Float       
+        * FubuMVC.OwinHost             Float       
+        * FubuMVC.Spark                Float       
+        * FubuMVC.StructureMap         Float       
+        * FubuMVC.TestingHarness       0.9.9.1400  
+        * FubuTestingSupport           Float       
+        * HtmlTags                     Float       
+        * NUnit                        2.5.10.11092
+        * Owin                         1.0         
+        * Owin.Extensions              0.6.4       
+        * RhinoMocks                   3.6.1       
+        * Spark                        1.7.5.0     
+        * structuremap                 2.6.3       
+        * structuremap.automocking     2.6.3       
+
+4/30/2013 3:48:24 PM: [Debug] Deleting c:\code\FubuMVC.AntiForgery\src\packages
+4/30/2013 3:48:24 PM: [Info] Restoring dependencies for solution FubuMVC.AntiForgery to c:\code\FubuMVC.AntiForgery\src\packages
+4/30/2013 3:48:24 PM: [Debug] 
+====================================================================================================
+RippleOperation: FubuMVC.AntiForgery
+====================================================================================================
+     ** Ripple Steps
+          1.) DownloadMissingNugets       Download missing nugets for FubuMVC.AntiForgery           
+          2.) ExplodeDownloadedNugets     Explode nugets at c:\code\FubuMVC.AntiForgery\src\packages
+          3.) ProcessDirectives           Process directives from nugets                            
+          4.) FixReferences               Fix References                                            
+
+4/30/2013 3:48:26 PM: [Debug] Downloading From Cache: C:\Users\jacrio\AppData\Roaming\ripple\FubuLocalization.0.9.5.143.nupkg
+4/30/2013 3:48:26 PM: [Debug] Downloading From Cache: C:\Users\jacrio\AppData\Roaming\ripple\Bottles.1.0.0.475.nupkg
+4/30/2013 3:48:26 PM: [Debug] Downloading From Cache: C:\Users\jacrio\AppData\Roaming\ripple\FubuCore.1.1.0.243.nupkg
+4/30/2013 3:48:26 PM: [Debug] Downloading From Cache: C:\Users\jacrio\AppData\Roaming\ripple\FubuMVC.Core.UI.1.0.1.450.nupkg
+4/30/2013 3:48:26 PM: [Debug] Downloading From Cache: C:\Users\jacrio\AppData\Roaming\ripple\FubuMVC.Katana.1.0.1.1457.nupkg
+4/30/2013 3:48:26 PM: [Debug] Downloading From Cache: C:\Users\jacrio\AppData\Roaming\ripple\FubuMVC.Core.1.0.1.1457.nupkg
+4/30/2013 3:48:26 PM: [Debug] Downloading From Cache: C:\Users\jacrio\AppData\Roaming\ripple\FubuMVC.Core.View.1.0.0.432.nupkg
+4/30/2013 3:48:26 PM: [Debug] Downloading From Cache: C:\Users\jacrio\AppData\Roaming\ripple\FubuTestingSupport.1.1.0.243.nupkg
+4/30/2013 3:48:26 PM: [Debug] Downloading From Cache: C:\Users\jacrio\AppData\Roaming\ripple\FubuMVC.Spark.1.0.0.432.nupkg
+4/30/2013 3:48:26 PM: [Debug] Downloading From Cache: C:\Users\jacrio\AppData\Roaming\ripple\FubuMVC.OwinHost.1.0.1.1457.nupkg
+4/30/2013 3:48:26 PM: [Debug] Downloading From Cache: C:\Users\jacrio\AppData\Roaming\ripple\FubuMVC.StructureMap.1.0.1.1457.nupkg
+4/30/2013 3:48:26 PM: [Debug] Downloading Download and cache FubuMVC.TestingHarness.1.0.1.1457.nupkg
+4/30/2013 3:48:26 PM: [Debug] Downloading From Cache: C:\Users\jacrio\AppData\Roaming\ripple\HtmlTags.1.2.0.159.nupkg
+4/30/2013 3:48:27 PM: [Debug] Downloading From Cache: C:\Users\jacrio\AppData\Roaming\ripple\RhinoMocks.3.6.1.0.nupkg
+4/30/2013 3:48:27 PM: [Debug] Downloading From Cache: C:\Users\jacrio\AppData\Roaming\ripple\NUnit.2.5.10.11092.nupkg
+4/30/2013 3:48:27 PM: [Debug] Downloading From Cache: C:\Users\jacrio\AppData\Roaming\ripple\structuremap.2.6.3.0.nupkg
+4/30/2013 3:48:28 PM: [Debug] Downloading From Cache: C:\Users\jacrio\AppData\Roaming\ripple\Spark.1.7.5.0.nupkg
+4/30/2013 3:48:28 PM: [Debug] Downloading From Cache: C:\Users\jacrio\AppData\Roaming\ripple\Owin.1.0.0.0.nupkg
+4/30/2013 3:48:28 PM: [Debug] Downloading From Cache: C:\Users\jacrio\AppData\Roaming\ripple\Owin.Extensions.0.6.4.0.nupkg
+4/30/2013 3:48:28 PM: [Debug] Downloading From Cache: C:\Users\jacrio\AppData\Roaming\ripple\structuremap.automocking.2.6.3.0.nupkg
+4/30/2013 3:48:28 PM: [Debug] Exploding Name: FubuLocalization, Version: 0.9.5.143, IsPreRelease: False
+4/30/2013 3:48:28 PM: [Info] Exploding to c:\code\FubuMVC.AntiForgery\src\packages\FubuLocalization
+4/30/2013 3:48:28 PM: [Debug] Exploding Name: FubuCore, Version: 1.1.0.243, IsPreRelease: False
+4/30/2013 3:48:28 PM: [Info] Exploding to c:\code\FubuMVC.AntiForgery\src\packages\FubuCore
+4/30/2013 3:48:28 PM: [Debug] Exploding Name: Bottles, Version: 1.0.0.475, IsPreRelease: False
+4/30/2013 3:48:28 PM: [Info] Exploding to c:\code\FubuMVC.AntiForgery\src\packages\Bottles
+4/30/2013 3:48:29 PM: [Debug] Exploding Name: FubuMVC.Core.UI, Version: 1.0.1.450, IsPreRelease: False
+4/30/2013 3:48:29 PM: [Info] Exploding to c:\code\FubuMVC.AntiForgery\src\packages\FubuMVC.Core.UI
+4/30/2013 3:48:29 PM: [Debug] Exploding Name: FubuMVC.Katana, Version: 1.0.1.1457, IsPreRelease: False
+4/30/2013 3:48:29 PM: [Info] Exploding to c:\code\FubuMVC.AntiForgery\src\packages\FubuMVC.Katana
+4/30/2013 3:48:29 PM: [Debug] Exploding Name: FubuMVC.Core, Version: 1.0.1.1457, IsPreRelease: False
+4/30/2013 3:48:29 PM: [Info] Exploding to c:\code\FubuMVC.AntiForgery\src\packages\FubuMVC.Core
+4/30/2013 3:48:29 PM: [Debug] Exploding Name: FubuMVC.Core.View, Version: 1.0.0.432, IsPreRelease: False
+4/30/2013 3:48:29 PM: [Info] Exploding to c:\code\FubuMVC.AntiForgery\src\packages\FubuMVC.Core.View
+4/30/2013 3:48:29 PM: [Debug] Exploding Name: FubuTestingSupport, Version: 1.1.0.243, IsPreRelease: False
+4/30/2013 3:48:29 PM: [Info] Exploding to c:\code\FubuMVC.AntiForgery\src\packages\FubuTestingSupport
+4/30/2013 3:48:29 PM: [Debug] Exploding Name: FubuMVC.Spark, Version: 1.0.0.432, IsPreRelease: False
+4/30/2013 3:48:29 PM: [Info] Exploding to c:\code\FubuMVC.AntiForgery\src\packages\FubuMVC.Spark
+4/30/2013 3:48:29 PM: [Debug] Exploding Name: FubuMVC.OwinHost, Version: 1.0.1.1457, IsPreRelease: False
+4/30/2013 3:48:29 PM: [Info] Exploding to c:\code\FubuMVC.AntiForgery\src\packages\FubuMVC.OwinHost
+4/30/2013 3:48:29 PM: [Debug] Exploding Name: FubuMVC.StructureMap, Version: 1.0.1.1457, IsPreRelease: False
+4/30/2013 3:48:29 PM: [Info] Exploding to c:\code\FubuMVC.AntiForgery\src\packages\FubuMVC.StructureMap
+4/30/2013 3:48:29 PM: [Debug] Exploding Name: HtmlTags, Version: 1.2.0.159, IsPreRelease: False
+4/30/2013 3:48:29 PM: [Info] Exploding to c:\code\FubuMVC.AntiForgery\src\packages\HtmlTags
+4/30/2013 3:48:29 PM: [Debug] Exploding Name: FubuMVC.TestingHarness, Version: 1.0.1.1457, IsPreRelease: False
+4/30/2013 3:48:29 PM: [Info] Exploding to c:\code\FubuMVC.AntiForgery\src\packages\FubuMVC.TestingHarness
+4/30/2013 3:48:29 PM: [Debug] Exploding Name: RhinoMocks, Version: 3.6.1.0, IsPreRelease: False
+4/30/2013 3:48:29 PM: [Info] Exploding to c:\code\FubuMVC.AntiForgery\src\packages\RhinoMocks
+4/30/2013 3:48:29 PM: [Debug] Exploding Name: NUnit, Version: 2.5.10.11092, IsPreRelease: False
+4/30/2013 3:48:29 PM: [Info] Exploding to c:\code\FubuMVC.AntiForgery\src\packages\NUnit
+4/30/2013 3:48:30 PM: [Debug] Exploding Name: structuremap, Version: 2.6.3.0, IsPreRelease: False
+4/30/2013 3:48:30 PM: [Info] Exploding to c:\code\FubuMVC.AntiForgery\src\packages\structuremap
+4/30/2013 3:48:30 PM: [Debug] Exploding Name: Spark, Version: 1.7.5.0, IsPreRelease: False
+4/30/2013 3:48:30 PM: [Info] Exploding to c:\code\FubuMVC.AntiForgery\src\packages\Spark
+4/30/2013 3:48:30 PM: [Debug] Exploding Name: Owin, Version: 1.0.0.0, IsPreRelease: False
+4/30/2013 3:48:30 PM: [Info] Exploding to c:\code\FubuMVC.AntiForgery\src\packages\Owin
+4/30/2013 3:48:30 PM: [Debug] Exploding Name: Owin.Extensions, Version: 0.6.4.0, IsPreRelease: False
+4/30/2013 3:48:30 PM: [Info] Exploding to c:\code\FubuMVC.AntiForgery\src\packages\Owin.Extensions
+4/30/2013 3:48:30 PM: [Debug] Exploding Name: structuremap.automocking, Version: 2.6.3.0, IsPreRelease: False
+4/30/2013 3:48:30 PM: [Info] Exploding to c:\code\FubuMVC.AntiForgery\src\packages\structuremap.automocking
+4/30/2013 3:48:30 PM: [Info] HintPath changed: ..\packages\Bottles.1.0.0.452\lib\Bottles.dll to ..\packages\Bottles\lib\Bottles.dll
+4/30/2013 3:48:30 PM: [Info] HintPath changed: ..\packages\FubuCore.1.0.2.232\lib\FubuCore.dll to ..\packages\FubuCore\lib\FubuCore.dll
+4/30/2013 3:48:30 PM: [Info] HintPath changed: ..\packages\FubuLocalization.0.9.5.130\lib\FubuLocalization.dll to ..\packages\FubuLocalization\lib\FubuLocalization.dll
+4/30/2013 3:48:30 PM: [Info] HintPath changed: ..\packages\FubuMVC.Core.1.0.1.1425\lib\net40\FubuMVC.Core.dll to ..\packages\FubuMVC.Core\lib\net40\FubuMVC.Core.dll
+4/30/2013 3:48:30 PM: [Info] HintPath changed: ..\packages\FubuMVC.Core.UI.1.0.1.450\lib\net40\FubuMVC.Core.UI.dll to ..\packages\FubuMVC.Core.UI\lib\net40\FubuMVC.Core.UI.dll
+4/30/2013 3:48:30 PM: [Info] HintPath changed: ..\packages\FubuMVC.Core.View.1.0.0.427\lib\net40\FubuMVC.Core.View.dll to ..\packages\FubuMVC.Core.View\lib\net40\FubuMVC.Core.View.dll
+4/30/2013 3:48:30 PM: [Info] HintPath changed: ..\packages\HtmlTags.1.2.0.150\lib\4.0\HtmlTags.dll to ..\packages\HtmlTags\lib\4.0\HtmlTags.dll
+4/30/2013 3:48:30 PM: [Info] HintPath changed: ..\packages\Bottles.1.0.0.452\lib\Bottles.dll to ..\packages\Bottles\lib\Bottles.dll
+4/30/2013 3:48:30 PM: [Info] HintPath changed: ..\packages\FubuCore.1.0.2.232\lib\FubuCore.dll to ..\packages\FubuCore\lib\FubuCore.dll
+4/30/2013 3:48:30 PM: [Info] HintPath changed: ..\packages\FubuLocalization.0.9.5.130\lib\FubuLocalization.dll to ..\packages\FubuLocalization\lib\FubuLocalization.dll
+4/30/2013 3:48:30 PM: [Info] HintPath changed: ..\packages\FubuMVC.Core.1.0.1.1425\lib\net40\FubuMVC.Core.dll to ..\packages\FubuMVC.Core\lib\net40\FubuMVC.Core.dll
+4/30/2013 3:48:30 PM: [Info] HintPath changed: ..\packages\FubuMVC.Core.UI.1.0.1.450\lib\net40\FubuMVC.Core.UI.dll to ..\packages\FubuMVC.Core.UI\lib\net40\FubuMVC.Core.UI.dll
+4/30/2013 3:48:30 PM: [Info] HintPath changed: ..\packages\FubuMVC.Core.View.1.0.0.427\lib\net40\FubuMVC.Core.View.dll to ..\packages\FubuMVC.Core.View\lib\net40\FubuMVC.Core.View.dll
+4/30/2013 3:48:30 PM: [Info] HintPath changed: ..\packages\FubuTestingSupport.1.0.2.232\lib\FubuTestingSupport.dll to ..\packages\FubuTestingSupport\lib\FubuTestingSupport.dll
+4/30/2013 3:48:30 PM: [Info] HintPath changed: ..\packages\HtmlTags.1.2.0.150\lib\4.0\HtmlTags.dll to ..\packages\HtmlTags\lib\4.0\HtmlTags.dll
+4/30/2013 3:48:30 PM: [Info] HintPath changed: ..\packages\NUnit.2.5.10.11092\lib\nunit.framework.dll to ..\packages\NUnit\lib\nunit.framework.dll
+4/30/2013 3:48:30 PM: [Info] HintPath changed: ..\packages\NUnit.2.5.10.11092\lib\nunit.mocks.dll to ..\packages\NUnit\lib\nunit.mocks.dll
+4/30/2013 3:48:30 PM: [Info] HintPath changed: ..\packages\NUnit.2.5.10.11092\lib\pnunit.framework.dll to ..\packages\NUnit\lib\pnunit.framework.dll
+4/30/2013 3:48:31 PM: [Info] HintPath changed: ..\packages\RhinoMocks.3.6.1\lib\net\Rhino.Mocks.dll to ..\packages\RhinoMocks\lib\net\Rhino.Mocks.dll
+4/30/2013 3:48:31 PM: [Info] HintPath changed: ..\packages\structuremap.2.6.3\lib\StructureMap.dll to ..\packages\structuremap\lib\StructureMap.dll
+4/30/2013 3:48:31 PM: [Info] HintPath changed: ..\packages\structuremap.automocking.2.6.3\lib\StructureMap.AutoMocking.dll to ..\packages\structuremap.automocking\lib\StructureMap.AutoMocking.dll
+4/30/2013 3:48:31 PM: [Info] HintPath changed: ..\packages\Bottles.1.0.0.452\lib\Bottles.dll to ..\packages\Bottles\lib\Bottles.dll
+4/30/2013 3:48:31 PM: [Info] HintPath changed: ..\packages\FubuCore.1.0.2.232\lib\FubuCore.dll to ..\packages\FubuCore\lib\FubuCore.dll
+4/30/2013 3:48:31 PM: [Info] HintPath changed: ..\packages\FubuLocalization.0.9.5.130\lib\FubuLocalization.dll to ..\packages\FubuLocalization\lib\FubuLocalization.dll
+4/30/2013 3:48:31 PM: [Info] HintPath changed: ..\packages\FubuMVC.Core.1.0.1.1425\lib\net40\FubuMVC.Core.dll to ..\packages\FubuMVC.Core\lib\net40\FubuMVC.Core.dll
+4/30/2013 3:48:31 PM: [Info] HintPath changed: ..\packages\FubuMVC.Core.View.1.0.0.427\lib\net40\FubuMVC.Core.View.dll to ..\packages\FubuMVC.Core.View\lib\net40\FubuMVC.Core.View.dll
+4/30/2013 3:48:31 PM: [Info] HintPath changed: ..\packages\FubuMVC.Katana.1.0.1.1425\lib\net40\FubuMVC.Katana.dll to ..\packages\FubuMVC.Katana\lib\net40\FubuMVC.Katana.dll
+4/30/2013 3:48:31 PM: [Info] HintPath changed: ..\packages\FubuMVC.Katana.1.0.1.1425\lib\net40\Microsoft.Owin.Host.HttpListener.dll to ..\packages\FubuMVC.Katana\lib\net40\Microsoft.Owin.Host.HttpListener.dll
+4/30/2013 3:48:31 PM: [Info] HintPath changed: ..\packages\FubuMVC.Katana.1.0.1.1425\lib\net40\Microsoft.Owin.Hosting.dll to ..\packages\FubuMVC.Katana\lib\net40\Microsoft.Owin.Hosting.dll
+4/30/2013 3:48:31 PM: [Info] HintPath changed: ..\packages\FubuMVC.OwinHost.1.0.1.1425\lib\net40\FubuMVC.OwinHost.dll to ..\packages\FubuMVC.OwinHost\lib\net40\FubuMVC.OwinHost.dll
+4/30/2013 3:48:31 PM: [Info] HintPath changed: ..\packages\FubuMVC.Spark.1.0.0.427\lib\net40\FubuMVC.Spark.dll to ..\packages\FubuMVC.Spark\lib\net40\FubuMVC.Spark.dll
+4/30/2013 3:48:31 PM: [Info] HintPath changed: ..\packages\FubuMVC.StructureMap.1.0.1.1425\lib\net40\FubuMVC.StructureMap.dll to ..\packages\FubuMVC.StructureMap\lib\net40\FubuMVC.StructureMap.dll
+4/30/2013 3:48:31 PM: [Info] HintPath changed: ..\packages\FubuMVC.TestingHarness.0.9.9.1400\lib\net40\FubuMVC.TestingHarness.dll to ..\packages\FubuMVC.TestingHarness\lib\net40\FubuMVC.TestingHarness.dll
+4/30/2013 3:48:31 PM: [Info] HintPath changed: ..\packages\FubuTestingSupport.1.0.2.232\lib\FubuTestingSupport.dll to ..\packages\FubuTestingSupport\lib\FubuTestingSupport.dll
+4/30/2013 3:48:31 PM: [Info] HintPath changed: ..\packages\HtmlTags.1.2.0.150\lib\4.0\HtmlTags.dll to ..\packages\HtmlTags\lib\4.0\HtmlTags.dll
+4/30/2013 3:48:31 PM: [Info] HintPath changed: ..\packages\NUnit.2.5.10.11092\lib\nunit.framework.dll to ..\packages\NUnit\lib\nunit.framework.dll
+4/30/2013 3:48:31 PM: [Info] HintPath changed: ..\packages\NUnit.2.5.10.11092\lib\nunit.mocks.dll to ..\packages\NUnit\lib\nunit.mocks.dll
+4/30/2013 3:48:31 PM: [Info] HintPath changed: ..\packages\NUnit.2.5.10.11092\lib\pnunit.framework.dll to ..\packages\NUnit\lib\pnunit.framework.dll
+4/30/2013 3:48:31 PM: [Info] HintPath changed: ..\packages\Owin.1.0\lib\net40\Owin.dll to ..\packages\Owin\lib\net40\Owin.dll
+4/30/2013 3:48:31 PM: [Info] HintPath changed:  to ..\packages\Owin.Extensions\lib\net40\Owin.Extensions.dll
+4/30/2013 3:48:31 PM: [Info] HintPath changed: ..\packages\RhinoMocks.3.6.1\lib\net\Rhino.Mocks.dll to ..\packages\RhinoMocks\lib\net\Rhino.Mocks.dll
+4/30/2013 3:48:31 PM: [Info] HintPath changed: ..\packages\Spark.1.7.5.0\lib\NET40\Spark.dll to ..\packages\Spark\lib\NET40\Spark.dll
+4/30/2013 3:48:31 PM: [Info] HintPath changed:  to ..\packages\structuremap\lib\StructureMap.dll
+4/30/2013 3:48:31 PM: [Info] HintPath changed:  to ..\packages\structuremap.automocking\lib\StructureMap.AutoMocking.dll
+4/30/2013 3:48:40 PM: [Info] Restoring dependencies for solution FubuMVC.AntiForgery to c:\code\FubuMVC.AntiForgery\src\packages
+4/30/2013 3:48:40 PM: [Debug] 
+====================================================================================================
+RippleOperation: FubuMVC.AntiForgery
+====================================================================================================
+     ** Ripple Steps
+          1.) DownloadMissingNugets       Download missing nugets for FubuMVC.AntiForgery           
+          2.) ExplodeDownloadedNugets     Explode nugets at c:\code\FubuMVC.AntiForgery\src\packages
+          3.) ProcessDirectives           Process directives from nugets                            
+          4.) FixReferences               Fix References                                            
+
+5/2/2013 1:08:45 PM: [Info] Classic Mode Detected
+5/2/2013 1:08:45 PM: [Info] Restoring dependencies for solution FubuMVC.AntiForgery to c:\code\FubuMVC.AntiForgery\src\packages
+5/2/2013 1:08:45 PM: [Debug] 
+====================================================================================================
+RippleOperation: FubuMVC.AntiForgery
+====================================================================================================
+     ** Ripple Steps
+          1.) DownloadMissingNugets       Download missing nugets for FubuMVC.AntiForgery           
+          2.) ExplodeDownloadedNugets     Explode nugets at c:\code\FubuMVC.AntiForgery\src\packages
+          3.) ProcessDirectives           Process directives from nugets                            
+          4.) FixReferences               Fix References                                            
+
+5/2/2013 3:02:37 PM: [Info] Classic Mode Detected
+5/2/2013 3:02:37 PM: [Info] Restoring dependencies for solution FubuMVC.AntiForgery to c:\code\FubuMVC.AntiForgery\src\packages
+5/2/2013 3:02:37 PM: [Debug] 
+====================================================================================================
+RippleOperation: FubuMVC.AntiForgery
+====================================================================================================
+     ** Ripple Steps
+          1.) DownloadMissingNugets       Download missing nugets for FubuMVC.AntiForgery           
+          2.) ExplodeDownloadedNugets     Explode nugets at c:\code\FubuMVC.AntiForgery\src\packages
+          3.) ProcessDirectives           Process directives from nugets                            
+          4.) FixReferences               Fix References                                            
+
+5/2/2013 3:26:33 PM: [Info] Classic Mode Detected
+5/2/2013 3:26:33 PM: [Info] Restoring dependencies for solution FubuMVC.AntiForgery to c:\code\FubuMVC.AntiForgery\src\packages
+5/2/2013 3:26:33 PM: [Debug] 
+====================================================================================================
+RippleOperation: FubuMVC.AntiForgery
+====================================================================================================
+     ** Ripple Steps
+          1.) DownloadMissingNugets       Download missing nugets for FubuMVC.AntiForgery           
+          2.) ExplodeDownloadedNugets     Explode nugets at c:\code\FubuMVC.AntiForgery\src\packages
+          3.) ProcessDirectives           Process directives from nugets                            
+          4.) FixReferences               Fix References                                            
+
