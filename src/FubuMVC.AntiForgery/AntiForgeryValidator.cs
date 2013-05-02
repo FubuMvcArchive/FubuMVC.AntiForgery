@@ -1,5 +1,6 @@
 using System;
 using System.Threading;
+using System.Web;
 using FubuCore.Binding;
 using FubuMVC.Core.Http;
 using FubuMVC.Core.Http.Cookies;
@@ -37,7 +38,7 @@ namespace FubuMVC.AntiForgery
             {
                 return false;
             }
-            AntiForgeryData cookieToken = _serializer.Deserialize(cookie.Value);
+            AntiForgeryData cookieToken = _serializer.Deserialize(HttpUtility.UrlDecode(cookie.Value));
 
             var formValue = _requestData.ValuesFor(RequestDataSource.Request).Get(fieldName) as string;
             if (string.IsNullOrEmpty(formValue))
