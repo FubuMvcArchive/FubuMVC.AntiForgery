@@ -1,4 +1,5 @@
 using System;
+using System.Web;
 using FubuTestingSupport;
 using NUnit.Framework;
 
@@ -29,7 +30,7 @@ namespace FubuMVC.AntiForgery.Testing
         [Test]
         public void deserialization_is_asp_compatible()
         {
-            const string aspSerialized = "CFRoZSBTYWx0CVRoZSBWYWx1ZQBAik+Cb80IDFRoZSBVc2VybmFtZQ==";
+            string aspSerialized = "CFRoZSBTYWx0CVRoZSBWYWx1ZQBAik+Cb80IDFRoZSBVc2VybmFtZQ==";
 
             //Base64 Serialized version of:
             var token = new AntiForgeryData
