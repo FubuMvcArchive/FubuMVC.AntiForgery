@@ -24,6 +24,18 @@ namespace FubuMVC.AntiForgery.Testing
         }
 
         [Test]
+        public void should_decode_the_cookie_value()
+        {
+            var cookie = new Cookie("CookieName", HttpUtility.UrlEncode("Some Value11"));
+            MockFor<ICookies>().Stub(r => r.Get("CookieName")).Return(cookie);
+
+            ClassUnderTest.GetCookieToken();
+
+            MockFor<IAntiForgerySerializer>()
+                .AssertWasCalled(x => x.Deserialize(HttpUtility.UrlDecode(cookie.Value)));
+        }
+
+        [Test]
         public void should_return_form_token_from_cookie_data()
         {
             MockFor<IAntiForgeryTokenProvider>().Stub(x => x.GetTokenName()).Return("FormName");
