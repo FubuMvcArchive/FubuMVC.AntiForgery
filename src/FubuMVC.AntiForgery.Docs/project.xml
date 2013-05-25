@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<ProjectRoot xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <TagLine>Anti-Forgery protection for FubuMVC applications</TagLine>
+  <Name>FubuMVC.AntiForgery</Name>
+  <GitHubPage>http://github.com/DarthFubuMVC/FubuMVC.AntiForgery</GitHubPage>
+  <UserGroupUrl>https://groups.google.com/forum/?fromgroups#!forum/fubumvc-devel</UserGroupUrl>
+  <BuildServerUrl>http://build.fubu-project.org/project.html?projectId=project46&amp;tab=projectOverview</BuildServerUrl>
+  <BottleName>FubuMVC.AntiForgery.Docs</BottleName>
+  <TeamCityBuildType>bt80</TeamCityBuildType>
+  <Nugets>
+    <PublishedNuget>
+      <Name>FubuMVC.AntiForgery</Name>
+      <Description>Anti-Forgery protection for FubuMVC applications</Description>
+    </PublishedNuget>
+  </Nugets>
+  <Url>fubumvc.antiforgery</Url>
+</ProjectRoot>
