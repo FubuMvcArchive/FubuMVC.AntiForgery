@@ -27,3 +27,4 @@ results
 bottles.cmd
 logs
 Gemfile.lock
+src/IntegrationTesting/fubu-content
