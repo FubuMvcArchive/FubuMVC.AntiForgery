@@ -1,9 +1,11 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using FubuMVC.Core;
 using FubuMVC.Core.Registration;
 
 namespace FubuMVC.AntiForgery
 {
+    [ConfigurationType(ConfigurationType.InjectNodes)]
     public class AntiForgeryPolicy : IConfigurationAction
     {
         public void Configure(BehaviorGraph graph)

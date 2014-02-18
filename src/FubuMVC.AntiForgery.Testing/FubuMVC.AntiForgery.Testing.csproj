@@ -49,6 +49,9 @@
     <Reference Include="FubuMVC.Core.View">
       <HintPath>..\packages\FubuMVC.Core.View\lib\net40\FubuMVC.Core.View.dll</HintPath>
     </Reference>
+    <Reference Include="FubuMVC.StructureMap">
+      <HintPath>..\packages\FubuMVC.StructureMap\lib\net40\FubuMVC.StructureMap.dll</HintPath>
+    </Reference>
     <Reference Include="FubuTestingSupport">
       <HintPath>..\packages\FubuTestingSupport\lib\FubuTestingSupport.dll</HintPath>
     </Reference>
@@ -92,6 +95,7 @@
     <Compile Include="AntiForgeryTokenProviderTester.cs" />
     <Compile Include="AntiForgeryValidatorTester.cs" />
     <Compile Include="BinaryAntiForgerySerializerTester.cs" />
+    <Compile Include="Default_policy_applies_anti_forgery_to_post_routes.cs" />
     <Compile Include="MachineKeyAntiForgeryEncoderTester.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
