@@ -19,6 +19,7 @@ namespace FubuMVC.AntiForgery.Testing
         private AntiForgeryData _formToken;
         private ICookies _cookies;
         private IValueSource _valueSource;
+        private IValueSource _headerSource;
 
         protected override void beforeEach()
         {
@@ -29,7 +30,10 @@ namespace FubuMVC.AntiForgery.Testing
             MockFor<IRequestData>().Stub(x => x.Value("ApplicationPath")).Return("Path");
 
             _valueSource = MockFor<IValueSource>();
+            _headerSource = MockFor<IValueSource>();
+
             MockFor<IRequestData>().Stub(x => x.ValuesFor(RequestDataSource.Request)).Return(_valueSource);
+            MockFor<IRequestData>().Stub(x => x.ValuesFor(RequestDataSource.Header)).Return(_headerSource);
 
             _cookies = MockFor<ICookies>();
 
@@ -117,6 +121,17 @@ namespace FubuMVC.AntiForgery.Testing
             MockFor<IIdentity>().Stub(x => x.Name).Return("User");
             _cookies.Stub(x => x.Get("CookieName")).Return(new Cookie("CookieName", "CookieValue"));
             _valueSource.Stub(x => x.Get("FormName")).Return("FormValue");
+            ClassUnderTest.Validate("Salty").ShouldBeTrue();
+        }
+
+        [Test]
+        public void should_validate_with_correct_request_data_from_header()
+        {
+            Thread.CurrentPrincipal = new GenericPrincipal(new GenericIdentity("User"), null);
+            MockFor<IIdentity>().Stub(x => x.IsAuthenticated).Return(true);
+            MockFor<IIdentity>().Stub(x => x.Name).Return("User");
+            _cookies.Stub(x => x.Get("CookieName")).Return(new Cookie("CookieName", "CookieValue"));
+            _headerSource.Stub(x => x.Get("FormName")).Return("FormValue");
             ClassUnderTest.Validate("Salty").ShouldBeTrue();
         }
     }

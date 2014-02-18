@@ -1,6 +1,7 @@
 using System;
 using System.Threading;
 using System.Web;
+using FubuCore;
 using FubuCore.Binding;
 using FubuMVC.Core.Http;
 using FubuMVC.Core.Http.Cookies;
@@ -17,8 +18,8 @@ namespace FubuMVC.AntiForgery
         private readonly IAntiForgeryTokenProvider _tokenProvider;
 
         public AntiForgeryValidator(IAntiForgeryTokenProvider tokenProvider, IAntiForgerySerializer serializer,
-                                    ICookies cookies, IFubuApplicationFiles fubuApplicationFiles,
-                                    IRequestData requestData)
+            ICookies cookies, IFubuApplicationFiles fubuApplicationFiles,
+            IRequestData requestData)
         {
             _tokenProvider = tokenProvider;
             _serializer = serializer;
@@ -30,29 +31,35 @@ namespace FubuMVC.AntiForgery
         public bool Validate(string salt)
         {
             var applicationPath = _fubuApplicationFiles.GetApplicationPath();
-            string fieldName = _tokenProvider.GetTokenName();
-            string cookieName = _tokenProvider.GetTokenName(applicationPath);
+            var fieldName = _tokenProvider.GetTokenName();
+            var cookieName = _tokenProvider.GetTokenName(applicationPath);
 
-            Cookie cookie = _cookies.Get(cookieName);
+            var cookie = _cookies.Get(cookieName);
             if (cookie == null || string.IsNullOrEmpty(cookie.Value))
             {
                 return false;
             }
-            AntiForgeryData cookieToken = _serializer.Deserialize(HttpUtility.UrlDecode(cookie.Value));
 
-            var formValue = _requestData.ValuesFor(RequestDataSource.Request).Get(fieldName) as string;
-            if (string.IsNullOrEmpty(formValue))
+            var cookieToken = _serializer.Deserialize(HttpUtility.UrlDecode(cookie.Value));
+
+            var formValue = _requestData.ValuesFor(RequestDataSource.Header).Get(fieldName) as string
+                            ??
+                            _requestData.ValuesFor(RequestDataSource.Request).Get(fieldName) as string;
+
+            if (formValue.IsEmpty())
             {
                 return false;
             }
-            AntiForgeryData formToken = _serializer.Deserialize(formValue);
+
+            var formToken = _serializer.Deserialize(formValue);
 
             if (!string.Equals(cookieToken.Value, formToken.Value, StringComparison.Ordinal))
             {
                 return false;
             }
 
-            string currentUsername = AntiForgeryData.GetUsername(Thread.CurrentPrincipal);
+            var currentUsername = AntiForgeryData.GetUsername(Thread.CurrentPrincipal);
+
             if (!string.Equals(formToken.Username, currentUsername, StringComparison.OrdinalIgnoreCase))
             {
                 return false;
