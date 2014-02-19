@@ -1,5 +1,4 @@
 using System;
-using System.Web;
 using FubuTestingSupport;
 using NUnit.Framework;
 
@@ -26,6 +25,17 @@ namespace FubuMVC.AntiForgery.Testing
             Services.Inject(typeof (IAntiForgeryEncoder), new TestEncoder());
         }
 
+		[Test]
+		public void failed_deserialization_should_return_empty_result()
+		{
+			const string tokenValue = "tampered token value";
+
+			AntiForgeryData deserialized = ClassUnderTest.Deserialize(tokenValue);
+
+			deserialized.Salt.ShouldEqual("");
+			deserialized.Salt.ShouldEqual("");
+			deserialized.Username.ShouldEqual("");
+		}
 
         [Test]
         public void deserialization_is_asp_compatible()

@@ -1,7 +1,5 @@
 using System;
 using System.IO;
-using System.Web;
-using FubuCore;
 
 namespace FubuMVC.AntiForgery
 {
@@ -32,7 +30,8 @@ namespace FubuMVC.AntiForgery
             }
             catch (Exception ex)
             {
-                throw new FubuException(5001, ex, "Failed to deserialize AntiForgery Token");
+                //TODO log this failure somehow so we can warn admins about tampering.
+                return new AntiForgeryData();
             }
         }
 
