@@ -1,17 +1,18 @@
 using System;
 using System.IO;
-using System.Web;
-using FubuCore;
+using FubuCore.Logging;
 
 namespace FubuMVC.AntiForgery
 {
     public class BinaryAntiForgerySerializer : IAntiForgerySerializer
     {
         private readonly IAntiForgeryEncoder _encoder;
+        private readonly ILogger _logger;
 
-        public BinaryAntiForgerySerializer(IAntiForgeryEncoder encoder)
+        public BinaryAntiForgerySerializer(IAntiForgeryEncoder encoder, ILogger logger)
         {
             _encoder = encoder;
+            _logger = logger;
         }
 
         public virtual AntiForgeryData Deserialize(string serializedToken)
@@ -30,9 +31,10 @@ namespace FubuMVC.AntiForgery
                     };
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                throw new FubuException(5001, ex, "Failed to deserialize AntiForgery Token");
+                _logger.Info("Could not deserialize the anti forgery token. Likely, it was tampered with.");
+                return new AntiForgeryData();
             }
         }
 
