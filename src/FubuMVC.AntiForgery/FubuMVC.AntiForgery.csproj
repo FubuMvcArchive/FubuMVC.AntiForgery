@@ -69,6 +69,7 @@
     <Compile Include="AntiForgeryData.cs" />
     <Compile Include="AntiForgeryExtensions.cs" />
     <Compile Include="AntiForgeryNode.cs" />
+    <Compile Include="AntiForgeryFilter.cs" />
     <Compile Include="AntiForgeryPolicy.cs" />
     <Compile Include="AntiForgeryService.cs" />
     <Compile Include="AntiForgeryServiceRegistry.cs" />
