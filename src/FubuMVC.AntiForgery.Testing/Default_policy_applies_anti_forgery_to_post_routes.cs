@@ -1,6 +1,7 @@
 ﻿using System.Linq;
 using FubuMVC.Core;
 using FubuMVC.Core.Registration;
+using FubuMVC.Core.Registration.Nodes;
 using FubuMVC.StructureMap;
 using FubuTestingSupport;
 using HtmlTags;
@@ -21,9 +22,9 @@ namespace FubuMVC.AntiForgery.Testing
             {
                 var graph = runtime.Factory.Get<BehaviorGraph>();
 
-                graph.BehaviorFor<TestEndpoint>(x => x.post_csrf(null))
-                    .OfType<AntiForgeryNode>().Any()
-                    .ShouldBeTrue();
+	            graph.BehaviorFor<TestEndpoint>(x => x.post_csrf(null))
+		            .OfType<ActionFilter>().Any()
+		            .ShouldBeTrue();
             }
 
 
